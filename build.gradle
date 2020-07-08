@@ -31,12 +31,13 @@ dependencies {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
-
+aplly plugin: 'war'
 mainClassName = 'hello.HelloWorld'
 
 // tag::repositories[]
 repositories {
     mavenCentral()
+    jcenter()
 }
 // end::repositories[]
 
@@ -54,6 +55,8 @@ targetCompatibility = 1.7
 dependencies {
     compile "joda-time:joda-time:2.2"
     testCompile "junit:junit:4.12"
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
+    
 }
 // end::dependencies[]
 
