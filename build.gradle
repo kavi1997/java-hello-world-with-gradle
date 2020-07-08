@@ -35,10 +35,13 @@ apply plugin: 'war'
 
 
 mainClassName = 'hello.HelloWorld'
-
+configurations {
+   moreLibs
+}
 // tag::repositories[]
 repositories {
-    mavenCentral()
+    flatDir { dirs "lib" }
+   // mavenCentral()
     jcenter()
 }
 // end::repositories[]
