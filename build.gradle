@@ -31,7 +31,9 @@ dependencies {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
-aplly plugin: 'war'
+apply plugin: 'war'
+apply plugin: 'org.gretty'
+
 mainClassName = 'hello.HelloWorld'
 
 // tag::repositories[]
