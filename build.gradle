@@ -52,7 +52,11 @@ jar {
     version =  '0.1.0'
 }
 // end::jar[]
-
+war {
+    basename = 'jb-hello-worldwarfile'
+    version = '0.1.0'
+    enabled = true
+}
 // tag::dependencies[]
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
