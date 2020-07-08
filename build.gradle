@@ -32,7 +32,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 apply plugin: 'war'
-apply plugin: 'org.gretty'
+
 
 mainClassName = 'hello.HelloWorld'
 
@@ -54,11 +54,25 @@ war {
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-dependencies {
+/*dependencies {
     compile "joda-time:joda-time:2.2"
     testCompile "junit:junit:4.12"
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
     
+}*/
+dependencies {
+    implementation module(":compile:1.0") {
+        dependency ":compile-transitive-1.0@jar"
+        dependency ":providedCompile-transitive:1.0@jar"
+    }
+    providedCompile "javax.servlet:servlet-api:2.5"
+    providedCompile module(":providedCompile:1.0") {
+        dependency ":providedCompile-transitive:1.0@jar"
+    }
+    runtimeOnly ":runtime:1.0"
+    providedRuntime ":providedRuntime:1.0@jar"
+    testImplementation "junit:junit:4.13"
+    moreLibs ":otherLib:1.0"
 }
 // end::dependencies[]
 
